@@ -60,7 +60,7 @@ class BGCN(Model):
         assert isinstance(raw_graph, list)
         ub_graph, ui_graph, bi_graph = raw_graph
 
-        #  deal with weig
+        #  deal with weights
         bi_norm = sp.diags(1/(np.sqrt((bi_graph.multiply(bi_graph)).sum(axis=1).A.ravel()) + 1e-8)) @ bi_graph
         bb_graph = bi_norm @ bi_norm.T
 
